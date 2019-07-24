@@ -1,0 +1,11 @@
+uuid=${1:-"6b6473ca-df3d-406a-be59-c6cdaf9b23ec"}
+echo "update mr_images set image_internal_id = '${uuid}', applications = '[{\"name\":\"spark2\",\"versions\":[\"2.3.2\"]},{\"name\":\"hive\",\"versions\":[\"3.1.0\"]},{\"name\":\"pig\",\"versions\":[\"0.17.0\"]},{\"name\":\"hbase\",\"versions\":[\"2.0.2\"]},{\"name\":\"azkaban\",\"versions\":[\"3.58.0\"]}, {\"name\":\"presto\",\"versions\":[\"0.219\"]}, {\"name\":\"zeppelin\",\"versions\":[\"0.8.0\"]},{\"name\":\"hue\",\"versions\":[\"4.4.0\"]}]' where type = 'hadoop' and version = '2.0.0';"
+echo "\n"
+
+echo "update mr_images set image_internal_id = '${uuid}' where type = 'hadoop' and version = '2.0.0';"
+echo "\n"
+
+echo "INSERT INTO \`image_internal\` (created_at, updated_at, id, bcc_image_id, plugin_name, plugin_version, ssh_port, is_openvpn_installed, user) VALUES (utc_timestamp(), utc_timestamp(), '${uuid}', '${uuid}', 'hdp', '3.1', 22, 1, 'root');"
+
+echo "\n"
+echo "Bmrtest@163"
